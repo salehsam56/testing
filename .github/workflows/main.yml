@@ -2,8 +2,8 @@ name: Python Application
 
 on:
   push:
-    branches:
-      - main
+    branches:     #this code runs when a push or pull_request event occurs on the main branch of your repository.
+      - main      
   pull_request:
     branches:
       - main
@@ -12,14 +12,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out repository    #Checkout Code: Pulls the latest version of the code from your repository.
         uses: actions/checkout@v2
         
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
+          python-version: '3.10'    #Set Up Python Environment: Configures a Python 3.10 environment for the workflow.
           
-      - name: Install dependencies
+      - name: Install dependencies   #Install Dependencies: Installs Python packages listed in the "requirements.txt file", which is typically used to manage dependencies for Python projects.
         run: |
           pip install -r requirements.txt
+#This workflow is intended for Continuous Integration (CI)
